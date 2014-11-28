@@ -89,6 +89,11 @@
       <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.sling</groupId>
+      <artifactId>org.apache.sling.testing.osgi-mock</artifactId>
+      <scope>test</scope>
+    </dependency>
 
   </dependencies>
 
@@ -201,33 +206,6 @@
             <artifactId>json-smart</artifactId>
           </exclusion>
         </exclusions>
-      </dependency>
-
-      <!-- HAL -->
-      <dependency>
-        <groupId>com.theoryinpractise</groupId>
-        <artifactId>halbuilder-api</artifactId>
-        <version>4.0.1</version>
-      </dependency>
-      <dependency>
-        <groupId>com.theoryinpractise</groupId>
-        <artifactId>halbuilder-standard</artifactId>
-        <version>4.0.1</version>
-      </dependency>
-      <dependency>
-        <groupId>com.theoryinpractise</groupId>
-        <artifactId>halbuilder-json</artifactId>
-        <version>4.0.2</version>
-      </dependency>
-      <dependency>
-        <groupId>com.theoryinpractise</groupId>
-        <artifactId>halbuilder-jaxrs</artifactId>
-        <version>1.1.1</version>
-      </dependency>
-      <dependency>
-        <groupId>com.theoryinpractise</groupId>
-        <artifactId>halbuilder-guava</artifactId>
-        <version>4.0.1</version>
       </dependency>
 
       <!-- Netflix Stack -->
@@ -390,6 +368,11 @@
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
         <version>1.10.8</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.sling</groupId>
+        <artifactId>org.apache.sling.testing.osgi-mock</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.github.tomakehurst</groupId>

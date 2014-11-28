@@ -41,7 +41,7 @@
   <modules>
     <module>parent_toplevel</module>
     <module>commons/stream</module>
-    <module>commons/hal-infrastructure</module>
+    <module>commons/hal</module>
   </modules>
 
   <build>

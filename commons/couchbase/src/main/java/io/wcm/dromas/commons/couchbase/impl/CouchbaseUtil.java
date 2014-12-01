@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.dromas.pipeline.cache.couchbase.impl.provider;
+package io.wcm.dromas.commons.couchbase.impl;
 
 import org.apache.commons.lang3.StringUtils;
 

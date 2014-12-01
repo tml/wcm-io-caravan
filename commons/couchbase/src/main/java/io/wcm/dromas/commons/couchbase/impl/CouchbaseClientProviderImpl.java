@@ -17,7 +17,9 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.dromas.pipeline.cache.couchbase.impl.provider;
+package io.wcm.dromas.commons.couchbase.impl;
+
+import io.wcm.dromas.commons.couchbase.CouchbaseClientProvider;
 
 import java.util.Map;
 
@@ -58,16 +60,11 @@ public class CouchbaseClientProviderImpl implements CouchbaseClientProvider {
   @Property(label = "Cache Bucket Password", description = "Couchbase bucket password for caching data")
   private static final String CACHE_BUCKET_PASSWORD_PROPERTY = "cacheBucketPassword";
 
-  @Property(label = "Cache Key Prefix", description = "Prefix for caching keys.")
-  private static final String CACHE_KEY_PREFIX_PROPERTY = "cacheKeyPrefix";
-  private static final String CACHE_KEY_PREFIX_DEFAULT = "json-pipeline:";
-
   private static final Logger log = LoggerFactory.getLogger(CouchbaseClientProviderImpl.class);
 
   private boolean enabled;
   private Cluster cluster;
   private AsyncBucket cacheBucket;
-  private String keyPrefix;
 
   @Activate
   private void activate(Map<String, Object> config) {
@@ -89,7 +86,6 @@ public class CouchbaseClientProviderImpl implements CouchbaseClientProvider {
       log.warn("No couchbase bucket name configured, caching is disabled.");
       return;
     }
-    keyPrefix = PropertiesUtil.toString(config.get(CACHE_KEY_PREFIX_PROPERTY), CACHE_KEY_PREFIX_DEFAULT);
 
     try {
       cluster = CouchbaseUtil.createCluster(couchbaseHosts);
@@ -120,11 +116,6 @@ public class CouchbaseClientProviderImpl implements CouchbaseClientProvider {
   @Override
   public AsyncBucket getCacheBucket() {
     return cacheBucket;
-  }
-
-  @Override
-  public String getKeyPrefix() {
-    return this.keyPrefix;
   }
 
 }

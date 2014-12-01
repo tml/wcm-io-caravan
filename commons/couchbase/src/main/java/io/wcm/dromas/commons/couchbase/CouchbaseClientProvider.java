@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.dromas.pipeline.cache.couchbase.impl.provider;
+package io.wcm.dromas.commons.couchbase;
 
 import com.couchbase.client.java.AsyncBucket;
 
@@ -35,10 +35,5 @@ public interface CouchbaseClientProvider {
    * @return Default bucket as configured for the couchbase client provider.
    */
   AsyncBucket getCacheBucket();
-
-  /**
-   * @return Prefix for all caching keys.
-   */
-  String getKeyPrefix();
 
 }

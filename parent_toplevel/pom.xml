@@ -201,6 +201,11 @@
         <artifactId>jackson-databind</artifactId>
         <version>2.4.3</version>
       </dependency>
+      <dependency>
+        <groupId>org.skyscreamer</groupId>
+        <artifactId>jsonassert</artifactId>
+        <version>1.2.3</version>
+      </dependency>
 
       <!-- Metrics -->
       <dependency>
@@ -257,13 +262,6 @@
         <groupId>io.dropwizard.metrics</groupId>
         <artifactId>metrics-logback</artifactId>
         <version>3.1.0</version>
-      </dependency>
-
-      <!-- Couchbase -->
-      <dependency>
-        <groupId>com.couchbase.client</groupId>
-        <artifactId>java-client</artifactId>
-        <version>2.0.1</version>
       </dependency>
 
       <!-- Logging -->

@@ -43,6 +43,9 @@
     <module>commons/stream</module>
     <module>commons/hal</module>
     <module>commons/jsonpath</module>
+    <module>pipeline/api</module>
+    <module>pipeline/impl</module>
+    <module>pipeline/cache/couchbase</module>
     <module>io/http</module>
   </modules>
 

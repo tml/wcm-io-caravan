@@ -42,6 +42,7 @@
     <module>parent_toplevel</module>
     <module>commons/stream</module>
     <module>commons/hal</module>
+    <module>commons/jsonpath</module>
     <module>io/http</module>
   </modules>
 

@@ -1,5 +1,5 @@
-dromas
+caravan
 ======
-[![Build Status](https://travis-ci.org/wcm-io/wcm-io-dromas.png?branch=master)](https://travis-ci.org/wcm-io/wcm-io-dromas)
+[![Build Status](https://travis-ci.org/wcm-io/wcm-io-caravan.png?branch=master)](https://travis-ci.org/wcm-io/wcm-io-caravan)
 
-wcm.io Dromas - JSON Data Pipelining Infrastructure
+wcm.io Caravan - JSON Data Pipelining Infrastructure

@@ -24,19 +24,19 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.wcm.dromas.maven</groupId>
-    <artifactId>io.wcm.dromas.maven.dromas-global-parent</artifactId>
+    <groupId>io.wcm.caravan.maven</groupId>
+    <artifactId>io.wcm.caravan.maven.caravan-global-parent</artifactId>
     <version>0.2.0-SNAPSHOT</version>
     <relativePath/>
   </parent>
 
-  <groupId>io.wcm.dromas</groupId>
-  <artifactId>io.wcm.dromas.root</artifactId>
+  <groupId>io.wcm.caravan</groupId>
+  <artifactId>io.wcm.caravan.root</artifactId>
   <version>1</version>
   <packaging>pom</packaging>
 
-  <name>wcm.io Dromas Root</name>
-  <description>Root POM for wcm.io Dromas Maven hierarchy.</description>
+  <name>wcm.io Caravan Root</name>
+  <description>Root POM for wcm.io Caravan Maven hierarchy.</description>
 
   <modules>
     <module>parent_toplevel</module>

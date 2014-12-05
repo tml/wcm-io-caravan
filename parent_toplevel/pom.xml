@@ -23,24 +23,24 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.wcm.dromas.maven</groupId>
-    <artifactId>io.wcm.dromas.maven.dromas-global-parent</artifactId>
+    <groupId>io.wcm.caravan.maven</groupId>
+    <artifactId>io.wcm.caravan.maven.caravan-global-parent</artifactId>
     <version>0.2.0-SNAPSHOT</version>
     <relativePath/>
   </parent>
 
-  <groupId>io.wcm.dromas</groupId>
-  <artifactId>io.wcm.dromas.parent_toplevel</artifactId>
+  <groupId>io.wcm.caravan</groupId>
+  <artifactId>io.wcm.caravan.parent_toplevel</artifactId>
   <version>0.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Toplevel Parent</name>
-  <description>Toplevel POM for all wcm.io Dromas Maven projects.</description>
+  <description>Toplevel POM for all wcm.io Caravan Maven projects.</description>
 
   <scm>
-    <connection>scm:git:git@github.com:wcm-io/wcm-io-dromas.git</connection>
-    <developerConnection>scm:git:git@github.com:wcm-io/wcm-io-dromas.git</developerConnection>
-    <url>https://github.com/wcm-io/wcm-io-dromas</url>
+    <connection>scm:git:git@github.com:wcm-io/wcm-io-caravan.git</connection>
+    <developerConnection>scm:git:git@github.com:wcm-io/wcm-io-caravan.git</developerConnection>
+    <url>https://github.com/wcm-io/wcm-io-caravan</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -58,7 +58,7 @@
 
   <ciManagement>
     <system>Travis CI</system>
-    <url>https://travis-ci.org/wcm-io/wcm-io-dromas</url>
+    <url>https://travis-ci.org/wcm-io/wcm-io-caravan</url>
   </ciManagement>
 
   <developers>
@@ -349,9 +349,9 @@
           <extensions>true</extensions>
           <configuration>
             <instructions>
-              <Bundle-Category>wcm.io Dromas</Bundle-Category>
+              <Bundle-Category>wcm.io Caravan</Bundle-Category>
               <Bundle-Vendor>wcm.io</Bundle-Vendor>
-              <Bundle-Name>wcm.io Dromas ${project.name}</Bundle-Name>
+              <Bundle-Name>wcm.io Caravan ${project.name}</Bundle-Name>
             </instructions>
           </configuration>
         </plugin>

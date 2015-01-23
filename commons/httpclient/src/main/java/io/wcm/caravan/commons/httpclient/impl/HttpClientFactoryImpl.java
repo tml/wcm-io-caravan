@@ -17,11 +17,11 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.http.httpclient.impl;
+package io.wcm.caravan.commons.httpclient.impl;
 
+import io.wcm.caravan.commons.httpclient.HttpClientConfig;
+import io.wcm.caravan.commons.httpclient.HttpClientFactory;
 import io.wcm.caravan.commons.stream.Streams;
-import io.wcm.caravan.io.http.httpclient.HttpClientConfig;
-import io.wcm.caravan.io.http.httpclient.HttpClientFactory;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -80,42 +80,42 @@ public class HttpClientFactoryImpl implements HttpClientFactory {
   }
 
   @Override
-  public HttpClient getHttpClient(String targetUrl) {
+  public HttpClient get(String targetUrl) {
     return getFactoryItem(toUri(targetUrl), null).getHttpClient();
   }
 
   @Override
-  public HttpClient getHttpClient(URI targetUrl) {
+  public HttpClient get(URI targetUrl) {
     return getFactoryItem(targetUrl, null).getHttpClient();
   }
 
   @Override
-  public HttpAsyncClient getHttpAsyncClient(String targetUrl) {
+  public HttpAsyncClient getAsync(String targetUrl) {
     return getFactoryItem(toUri(targetUrl), null).getHttpAsyncClient();
   }
 
   @Override
-  public HttpAsyncClient getHttpAsyncClient(URI targetUrl) {
+  public HttpAsyncClient getAsync(URI targetUrl) {
     return getFactoryItem(targetUrl, null).getHttpAsyncClient();
   }
 
   @Override
-  public HttpClient getWsHttpClient(String targetUrl, String wsAddressingToUri) {
+  public HttpClient getWs(String targetUrl, String wsAddressingToUri) {
     return getFactoryItem(toUri(targetUrl), wsAddressingToUri).getHttpClient();
   }
 
   @Override
-  public HttpClient getWsHttpClient(URI targetUrl, URI wsAddressingToUri) {
+  public HttpClient getWs(URI targetUrl, URI wsAddressingToUri) {
     return getFactoryItem(targetUrl, wsAddressingToUri.toString()).getHttpClient();
   }
 
   @Override
-  public HttpAsyncClient getWsHttpAsyncClient(String targetUrl, String wsAddressingToUri) {
+  public HttpAsyncClient getWsAsync(String targetUrl, String wsAddressingToUri) {
     return getFactoryItem(toUri(targetUrl), wsAddressingToUri).getHttpAsyncClient();
   }
 
   @Override
-  public HttpAsyncClient getWsHttpAsyncClient(URI targetUrl, URI wsAddressingToUri) {
+  public HttpAsyncClient getWsAsync(URI targetUrl, URI wsAddressingToUri) {
     return getFactoryItem(targetUrl, wsAddressingToUri.toString()).getHttpAsyncClient();
   }
 

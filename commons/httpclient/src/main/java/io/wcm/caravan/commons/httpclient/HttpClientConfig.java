@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.http.httpclient;
+package io.wcm.caravan.commons.httpclient;
 
 /**
  * HTTP Client configuration.

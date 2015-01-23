@@ -17,13 +17,13 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.http.httpclient.impl;
+package io.wcm.caravan.commons.httpclient.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import io.wcm.caravan.io.http.httpclient.HttpClientConfig;
+import io.wcm.caravan.commons.httpclient.HttpClientConfig;
 
 import org.junit.Test;
 

@@ -17,12 +17,12 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.http.httpclient.impl;
+package io.wcm.caravan.commons.httpclient.impl;
 
-import static io.wcm.caravan.io.http.httpclient.impl.HttpClientConfigImpl.KEYSTORE_PASSWORD_PROPERTY;
-import static io.wcm.caravan.io.http.httpclient.impl.HttpClientConfigImpl.KEYSTORE_PATH_PROPERTY;
-import static io.wcm.caravan.io.http.httpclient.impl.HttpClientConfigImpl.TRUSTSTORE_PASSWORD_PROPERTY;
-import static io.wcm.caravan.io.http.httpclient.impl.HttpClientConfigImpl.TRUSTSTORE_PATH_PROPERTY;
+import static io.wcm.caravan.commons.httpclient.impl.HttpClientConfigImpl.KEYSTORE_PASSWORD_PROPERTY;
+import static io.wcm.caravan.commons.httpclient.impl.HttpClientConfigImpl.KEYSTORE_PATH_PROPERTY;
+import static io.wcm.caravan.commons.httpclient.impl.HttpClientConfigImpl.TRUSTSTORE_PASSWORD_PROPERTY;
+import static io.wcm.caravan.commons.httpclient.impl.HttpClientConfigImpl.TRUSTSTORE_PATH_PROPERTY;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.FileNotFoundException;

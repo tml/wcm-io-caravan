@@ -7,9 +7,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.http.httpclient;
+package io.wcm.caravan.commons.httpclient;
 
 import java.net.URI;
 
@@ -35,7 +35,7 @@ public interface HttpClientFactory {
    * @param targetUrl Target URL to call (this url is not called, but required to check for configuration)
    * @return Http Client
    */
-  HttpClient getHttpClient(String targetUrl);
+  HttpClient get(String targetUrl);
 
   /**
    * Returns a configured synchronous Http Client for the given target URL. If a special configuration
@@ -43,7 +43,7 @@ public interface HttpClientFactory {
    * @param targetUrl Target URL to call (this url is not called, but required to check for configuration)
    * @return Http Client
    */
-  HttpClient getHttpClient(URI targetUrl);
+  HttpClient get(URI targetUrl);
 
   /**
    * Returns a configured asynchronous Http Client for the given target URL. If a special configuration
@@ -51,7 +51,7 @@ public interface HttpClientFactory {
    * @param targetUrl Target URL to call (this url is not called, but required to check for configuration)
    * @return Http Client
    */
-  HttpAsyncClient getHttpAsyncClient(String targetUrl);
+  HttpAsyncClient getAsync(String targetUrl);
 
   /**
    * Returns a configured asynchronous Http Client for the given target URL. If a special configuration
@@ -59,42 +59,50 @@ public interface HttpClientFactory {
    * @param targetUrl Target URL to call (this url is not called, but required to check for configuration)
    * @return Http Client
    */
-  HttpAsyncClient getHttpAsyncClient(URI targetUrl);
+  HttpAsyncClient getAsync(URI targetUrl);
 
   /**
-   * Returns a configured synchronous Http Client for the given target URL. If a special configuration
-   * (e.g. timeout setting, proxy server, authentication) is configured it is applied in the factory.
+   * Returns a configured synchronous Http Client for the given target URL. The Http Client is dedicated
+   * for SOAP access and supports filtering specific configuration via the "WS Addressing To" URI.
+   * If a special configuration (e.g. timeout setting, proxy server, authentication) is configured it is
+   * applied in the factory.
    * @param targetUrl Target URL to call (this url is not called, but required to check for configuration)
    * @param wsAddressingToUri WS Addressing "To" header
    * @return Http Client
    */
-  HttpClient getWsHttpClient(String targetUrl, String wsAddressingToUri);
+  HttpClient getWs(String targetUrl, String wsAddressingToUri);
 
   /**
-   * Returns a configured synchronous Http Client for the given target URL. If a special configuration
-   * (e.g. timeout setting, proxy server, authentication) is configured it is applied in the factory.
+   * Returns a configured synchronous Http Client for the given target URL. The Http Client is dedicated
+   * for SOAP access and supports filtering specific configuration via the "WS Addressing To" URI.
+   * If a special configuration (e.g. timeout setting, proxy server, authentication) is configured it is
+   * applied in the factory.
    * @param targetUrl Target URL to call (this url is not called, but required to check for configuration)
    * @param wsAddressingToUri WS Addressing "To" header
    * @return Http Client
    */
-  HttpClient getWsHttpClient(URI targetUrl, URI wsAddressingToUri);
+  HttpClient getWs(URI targetUrl, URI wsAddressingToUri);
 
   /**
-   * Returns a configured asynchronous Http Client for the given target URL. If a special configuration
-   * (e.g. timeout setting, proxy server, authentication) is configured it is applied in the factory.
+   * Returns a configured asynchronous Http Client for the given target URL. The Http Client is dedicated
+   * for SOAP access and supports filtering specific configuration via the "WS Addressing To" URI.
+   * If a special configuration (e.g. timeout setting, proxy server, authentication) is configured it is
+   * applied in the factory.
    * @param targetUrl Target URL to call (this url is not called, but required to check for configuration)
    * @param wsAddressingToUri WS Addressing "To" header
    * @return Http Client
    */
-  HttpAsyncClient getWsHttpAsyncClient(String targetUrl, String wsAddressingToUri);
+  HttpAsyncClient getWsAsync(String targetUrl, String wsAddressingToUri);
 
   /**
-   * Returns a configured asynchronous Http Client for the given target URL. If a special configuration
-   * (e.g. timeout setting, proxy server, authentication) is configured it is applied in the factory.
+   * Returns a configured asynchronous Http Client for the given target URL. The Http Client is dedicated
+   * for SOAP access and supports filtering specific configuration via the "WS Addressing To" URI.
+   * If a special configuration (e.g. timeout setting, proxy server, authentication) is configured it is
+   * applied in the factory.
    * @param targetUrl Target URL to call (this url is not called, but required to check for configuration)
    * @param wsAddressingToUri WS Addressing "To" header
    * @return Http Client
    */
-  HttpAsyncClient getWsHttpAsyncClient(URI targetUrl, URI wsAddressingToUri);
+  HttpAsyncClient getWsAsync(URI targetUrl, URI wsAddressingToUri);
 
 }

@@ -17,11 +17,11 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.http.httpclient.impl;
+package io.wcm.caravan.commons.httpclient.impl;
 
+import io.wcm.caravan.commons.httpclient.HttpClientConfig;
 import io.wcm.caravan.commons.stream.Collectors;
 import io.wcm.caravan.commons.stream.Streams;
-import io.wcm.caravan.io.http.httpclient.HttpClientConfig;
 
 import java.util.Map;
 import java.util.Set;

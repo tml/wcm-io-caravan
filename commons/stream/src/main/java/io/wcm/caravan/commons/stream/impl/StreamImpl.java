@@ -85,4 +85,17 @@ public final class StreamImpl<T> implements Stream<T> {
     return iterable.iterator();
   }
 
+  @Override
+  public <R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper) {
+    checkNotNull(mapper);
+    List<R> result = new ArrayList<>();
+    for (T item : iterable) {
+      Stream<? extends R> tempStream = mapper.apply(item);
+      if (tempStream != null) {
+        tempStream.forEach(e -> result.add(e));
+      }
+    }
+    return new StreamImpl<R>(result);
+  }
+
 }

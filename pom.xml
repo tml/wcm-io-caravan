@@ -45,11 +45,11 @@
     <module>commons/jsonpath</module>
     <module>commons/couchbase</module>
     <module>commons/httpclient</module>
+    <module>io/http</module>
+    <module>io/json-transform</module>
     <module>pipeline/api</module>
     <module>pipeline/impl</module>
     <module>pipeline/cache/couchbase</module>
-    <module>io/http</module>
-    <module>io/json-transform</module>
   </modules>
 
   <build>

@@ -31,11 +31,11 @@
   </parent>
 
   <groupId>io.wcm.caravan</groupId>
-  <artifactId>io.wcm.caravan.io.hal</artifactId>
+  <artifactId>io.wcm.caravan.commons.hal</artifactId>
   <version>0.2.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
-  <name>JSON HAL Resources</name>
+  <name>Commons JSON HAL Resource Library</name>
   <description>A building and reading library for JSON HAL resources.</description>
 
   <scm>

@@ -52,6 +52,7 @@
     <module>pipeline/api</module>
     <module>pipeline/impl</module>
     <module>pipeline/cache/couchbase</module>
+	<module>pipeline/cache/guava</module>
   </modules>
 
   <build>

@@ -47,6 +47,7 @@
     <module>commons/jsonpath</module>
     <module>commons/metrics</module>
     <module>commons/stream</module>
+    <module>commons/uri-template</module>
     <module>io/http</module>
     <module>io/json-transform</module>
     <module>pipeline/api</module>

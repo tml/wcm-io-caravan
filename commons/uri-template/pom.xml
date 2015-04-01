@@ -19,7 +19,8 @@
   #L%
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -30,12 +31,12 @@
   </parent>
 
   <groupId>io.wcm.caravan</groupId>
-  <artifactId>io.wcm.caravan.pipeline.api</artifactId>
+  <artifactId>io.wcm.caravan.commons.uri-template</artifactId>
   <version>0.2.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
-  <name>JSON Pipeline API</name>
-  <description>JSON data pipeline with aggregation, slicing and caching.</description>
+  <name>Commons Uri Templates</name>
+  <description>Provide Handy URI Templates implementation.</description>
 
   <scm>
     <connection>scm:git:git@github.com:wcm-io/wcm-io-caravan.git</connection>
@@ -44,34 +45,16 @@
     <tag>HEAD</tag>
   </scm>
 
+  <properties>
+    <uriTemplate.version>2.0.2</uriTemplate.version>
+  </properties>
+
   <dependencies>
-
     <dependency>
-      <groupId>io.wcm.caravan</groupId>
-      <artifactId>io.wcm.caravan.io.http</artifactId>
-      <version>0.2.0-SNAPSHOT</version>
-      <scope>compile</scope>
+      <groupId>com.damnhandy</groupId>
+      <artifactId>handy-uri-templates</artifactId>
+      <version>${uriTemplate.version}</version>
     </dependency>
-
-    <dependency>
-      <groupId>io.wcm.caravan</groupId>
-      <artifactId>io.wcm.caravan.commons.uri-template</artifactId>
-      <version>0.2.0-SNAPSHOT</version>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>io.reactivex</groupId>
-      <artifactId>rxjava</artifactId>
-      <scope>compile</scope>
-    </dependency>
-
   </dependencies>
 
   <build>
@@ -80,6 +63,20 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <!-- Do not inline jars, include as jar files -->
+            <Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
+            <Embed-Transitive>true</Embed-Transitive>
+            <!-- use _exportcontents instead of Export-Package to avoid conflict with Embed-Dependency an inline=true -->
+            <_exportcontents>
+              com.damnhandy.uri.template.*;version=${uriTemplate.version}
+            </_exportcontents>
+            <Import-Package>
+              *
+            </Import-Package>
+          </instructions>
+        </configuration>
       </plugin>
 
       <plugin>

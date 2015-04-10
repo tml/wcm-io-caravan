@@ -49,6 +49,7 @@
 	<module>commons/osgi-test</module>
     <module>commons/stream</module>
     <module>commons/uri-template</module>
+    <module>io/hal-client</module>
     <module>io/http</module>
     <module>io/json-transform</module>
     <module>pipeline/api</module>

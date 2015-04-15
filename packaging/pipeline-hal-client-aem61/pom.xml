@@ -27,6 +27,7 @@
       httpasyncclient-osgi,
       httpcore-osgi,
       commons-beanutils,
+      io.wcm.osgi.wrapper.handy-uri-templates,
       io.wcm.osgi.wrapper.rxjava,
       jackson-core,
       jackson-annotations,
@@ -100,6 +101,11 @@
     <dependency>
       <groupId>io.wcm.osgi.wrapper</groupId>
       <artifactId>io.wcm.osgi.wrapper.rxjava</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.wcm.osgi.wrapper</groupId>
+      <artifactId>io.wcm.osgi.wrapper.handy-uri-templates</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>

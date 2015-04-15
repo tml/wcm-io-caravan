@@ -220,6 +220,18 @@
         <artifactId>jersey-common</artifactId>
         <version>2.15</version>
       </dependency>
+      
+      <!-- URI Template -->
+      <dependency>
+        <groupId>com.damnhandy</groupId>
+        <artifactId>handy-uri-templates</artifactId>
+        <version>2.0.2</version>
+      </dependency>
+      <dependency>
+        <groupId>io.wcm.osgi.wrapper</groupId>
+        <artifactId>io.wcm.osgi.wrapper.handy-uri-templates</artifactId>
+        <version>2.0.2-0000-SNAPSHOT</version>
+      </dependency>
 
       <!-- JSON handling -->
       <dependency>
@@ -252,7 +264,7 @@
         <artifactId>jsonassert</artifactId>
         <version>1.2.3</version>
       </dependency>
-
+      
       <!-- Metrics -->
       <dependency>
         <groupId>io.dropwizard.metrics</groupId>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.wcm.caravan</groupId>
+    <artifactId>io.wcm.caravan.parent_toplevel</artifactId>
+    <version>0.2.1-SNAPSHOT</version>
+    <relativePath>../../parent_toplevel/pom.xml</relativePath>
+  </parent>
+
+  <groupId>io.wcm.caravan</groupId>
+  <artifactId>io.wcm.caravan.packaging.pipeline-hal-client-aem61</artifactId>
+  <version>0.2.0-SNAPSHOT</version>
+  <description>wcm.io Caravan Pipeline and HAL Client for consuming RESTful services</description>
+  <packaging>content-package</packaging>
+
+  <properties>
+    <content-package-name>wcm-io-caravan-complete</content-package-name>
+    <content-package-group>wcm-io</content-package-group>
+    <dependency-includeGroupIds>
+      io.wcm.caravan
+    </dependency-includeGroupIds>
+    <dependency-includeArtifactIds>
+      org.apache.sling.commons.osgi,
+      httpclient-osgi,
+      httpasyncclient-osgi,
+      httpcore-osgi,
+      commons-beanutils,
+      io.wcm.osgi.wrapper.rxjava,
+      jackson-core,
+      jackson-annotations,
+      jackson-databind,
+      jackson-core-asl,
+      jackson-mapper-asl,
+      commons-configuration,
+      metrics-core,
+      metrics-healthchecks,
+      metrics-json,
+      metrics-jvm,
+      metrics-servlets,
+      commons-lang
+    </dependency-includeArtifactIds>
+  </properties>
+
+  <!-- Dependencies to include in this package -->
+  <dependencies>
+  
+    <!-- wcm.io Caravan -->
+    <dependency>
+      <groupId>io.wcm.caravan</groupId>
+      <artifactId>io.wcm.caravan.io.hal-client</artifactId>
+      <version>0.2.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.wcm.caravan</groupId>
+      <artifactId>io.wcm.caravan.pipeline.api</artifactId>
+      <version>0.2.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.wcm.caravan</groupId>
+      <artifactId>io.wcm.caravan.pipeline.impl</artifactId>
+      <version>0.2.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.wcm.caravan</groupId>
+      <artifactId>io.wcm.caravan.pipeline.cache.guava</artifactId>
+      <version>0.2.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.sling</groupId>
+      <artifactId>org.apache.sling.commons.osgi</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcore-osgi</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient-osgi</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpasyncclient-osgi</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.wcm.osgi.wrapper</groupId>
+      <artifactId>io.wcm.osgi.wrapper.rxjava</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-asl</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-configuration</groupId>
+      <artifactId>commons-configuration</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.dropwizard.metrics</groupId>
+      <artifactId>metrics-core</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.dropwizard.metrics</groupId>
+      <artifactId>metrics-healthchecks</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.dropwizard.metrics</groupId>
+      <artifactId>metrics-json</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.dropwizard.metrics</groupId>
+      <artifactId>metrics-jvm</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.dropwizard.metrics</groupId>
+      <artifactId>metrics-servlets</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <finalName>${content-package-name}-${project.version}</finalName>
+    <resources>
+      <!-- custom package thumbnail -->
+      <resource>
+        <directory>src/main/resources/META-INF/vault/definition</directory>
+        <targetPath>../vault-work/META-INF/vault/definition</targetPath>
+      </resource>
+    </resources>
+    <plugins>
+
+      <plugin>
+        <groupId>com.day.jcr.vault</groupId>
+        <artifactId>content-package-maven-plugin</artifactId>
+        <version>0.0.23</version>
+        <extensions>true</extensions>
+        <configuration>
+          <failOnError>true</failOnError>
+          <builtContentDirectory>jcr_root</builtContentDirectory>
+          <verbose>true</verbose>
+          <name>${content-package-name}</name>
+          <group>${content-package-group}</group>
+          <filters>
+            <filter>
+              <root>/apps/${content-package-name}</root>
+            </filter>
+          </filters>
+        </configuration>
+      </plugin>
+
+      <!-- copy the application's dependencies -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <!-- define different start levels to ensure installation in the order: sling bundles, app bundles, wcm.io bundles - to avoid OSGi wiring problems with javax.inject (see VWDF-211) -->
+          <execution>
+            <id>copy-dependencies-by-groupid</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputAbsoluteArtifactFilename>true</outputAbsoluteArtifactFilename>
+              <includeGroupIds>${dependency-includeGroupIds}</includeGroupIds>
+              <outputDirectory>${project.build.directory}/vault-work/jcr_root/apps/${content-package-name}/install</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-dependencies-by-artifactid</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputAbsoluteArtifactFilename>true</outputAbsoluteArtifactFilename>
+              <includeArtifactIds>${dependency-includeArtifactIds}</includeArtifactIds>
+              <outputDirectory>${project.build.directory}/vault-work/jcr_root/apps/${content-package-name}/install</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Do not generate eclipse project files -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <inherited>true</inherited>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+
+      <!-- Do not deploy sources to repository -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <configuration>
+          <attach>false</attach>
+        </configuration>
+      </plugin>
+
+    </plugins>
+
+  </build>
+</project>

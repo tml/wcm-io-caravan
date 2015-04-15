@@ -46,7 +46,6 @@
     <module>commons/httpclient</module>
     <module>commons/jsonpath</module>
     <module>commons/metrics</module>
-	<module>commons/osgi-test</module>
     <module>commons/stream</module>
     <module>commons/uri-template</module>
     <module>io/hal-client</module>
@@ -56,6 +55,10 @@
     <module>pipeline/impl</module>
     <module>pipeline/cache/couchbase</module>
 	<module>pipeline/cache/guava</module>
+	<module>testing/io-test</module>
+	<module>testing/json-test</module>
+	<module>testing/osgi-test</module>
+	<module>testing/pipeline-test</module>
   </modules>
 
   <build>

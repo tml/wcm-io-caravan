@@ -1,0 +1,23 @@
+{
+   "metadata": {
+       "cacheKey": "sdl-cache:pdsLibrary:GET(//pdsLibrary/ngw-rest/rest/1/simple/preview/ves/spa/model/30900-36249X_U_0_U_GRHZRHZ_U_GW37W37-2015?dataVersion=920919004)",
+       "sources": [
+           "pdsLibrary"
+       ],
+       "pipeline": "GET(//pdsLibrary/ngw-rest/rest/1/simple/preview/ves/spa/model/30900-36249X_U_0_U_GRHZRHZ_U_GW37W37-2015?dataVersion=920919004)",
+       "generated": "Wed, 15 Apr 2015 16:30:19 GMT",
+       "statusCode": 200,
+       "sourcePaths": [
+           "/ngw-rest/rest/1/simple/preview/ves/spa/model/30900-36249X_U_0_U_GRHZRHZ_U_GW37W37-2015"
+       ],
+       "contextProperties": {
+           "tenantId": "de-pkw",
+           "language": "de",
+           "role": "public"
+       }
+   },
+   "content": {
+       "contextKey": "ves",
+       "dataVersionId": "abc"
+   }
+}

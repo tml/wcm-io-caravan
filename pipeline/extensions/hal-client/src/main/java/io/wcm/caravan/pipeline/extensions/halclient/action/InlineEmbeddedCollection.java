@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.halclient.actions;
+package io.wcm.caravan.pipeline.extensions.halclient.action;
 
 import io.wcm.caravan.commons.hal.resource.HalResource;
 import io.wcm.caravan.commons.stream.Streams;
@@ -28,6 +28,7 @@ import io.wcm.caravan.pipeline.JsonPipelineOutput;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.osgi.annotation.versioning.ProviderType;
 
 import rx.Observable;
 
@@ -35,30 +36,30 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
- * Moves the state of embedded resources into the state of the current resource.
- * The embedded resources get and the self link of the current resource get deleted.
+ * Embeds the items of an embedded HAL collection resource.
  */
-public class InlineEmbedded implements JsonPipelineAction {
+@ProviderType
+public final class InlineEmbeddedCollection implements JsonPipelineAction {
 
   private final String[] relations;
 
   /**
    * @param relations
    */
-  public InlineEmbedded(String... relations) {
+  public InlineEmbeddedCollection(String... relations) {
     this.relations = relations;
   }
 
   @Override
   public String getId() {
-    return "INLINE-EMBEDDED(" + StringUtils.join(relations, '-') + ")";
+    return "INLINE-EMBEDDED-COLLECTION(" + StringUtils.join(relations, '-') + ")";
   }
 
   @Override
   public Observable<JsonPipelineOutput> execute(JsonPipelineOutput previousStepOutput, JsonPipelineContext context) {
     HalResource halResource = new HalResource((ObjectNode)previousStepOutput.getPayload());
     for (String relation : relations) {
-      moveEmbeddedResourceState(halResource, relation);
+      moveEmbeddedCollection(halResource, relation);
       // delete embedded resource
       halResource.removeEmbedded(relation);
     }
@@ -68,16 +69,18 @@ public class InlineEmbedded implements JsonPipelineAction {
     return Observable.just(previousStepOutput);
   }
 
-  private void moveEmbeddedResourceState(HalResource halResource, String relation) {
+  private void moveEmbeddedCollection(HalResource halResource, String relation) {
     List<HalResource> embeddedResources = halResource.getEmbedded(relation);
     ObjectNode model = halResource.getModel();
-    if (embeddedResources.size() == 1) {
-      model.set(relation, embeddedResources.get(0).removeEmbedded().removeLinks().getModel());
-    }
-    else {
-      ArrayNode container = model.putArray(relation);
-      Streams.of(embeddedResources).forEach(e -> container.add(e.removeEmbedded().removeLinks().getModel()));
-    }
+    ArrayNode container = model.putArray(relation);
+    // iterate on relation specific embedded resources
+    Streams.of(embeddedResources)
+    // get items
+    .flatMap(e -> Streams.of(e.getEmbedded("item")))
+    // get state
+    .map(item -> item.removeEmbedded().removeLinks().getModel())
+    // add to array
+    .forEach(itemState -> container.add(itemState));
   }
 
 }

@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.halclient.actions;
+package io.wcm.caravan.pipeline.extensions.halclient.action;
 
 import io.wcm.caravan.commons.hal.resource.HalResourceFactory;
 import io.wcm.caravan.pipeline.JsonPipelineContext;

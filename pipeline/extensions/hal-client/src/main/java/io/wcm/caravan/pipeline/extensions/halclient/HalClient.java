@@ -17,26 +17,29 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.halclient;
+package io.wcm.caravan.pipeline.extensions.halclient;
 
-import io.wcm.caravan.io.halclient.actions.EmbedLinks;
-import io.wcm.caravan.io.halclient.actions.FollowLink;
 import io.wcm.caravan.io.http.request.CaravanHttpRequest;
 import io.wcm.caravan.io.http.request.CaravanHttpRequestBuilder;
 import io.wcm.caravan.pipeline.JsonPipeline;
 import io.wcm.caravan.pipeline.JsonPipelineAction;
 import io.wcm.caravan.pipeline.JsonPipelineFactory;
 import io.wcm.caravan.pipeline.cache.CacheStrategy;
+import io.wcm.caravan.pipeline.extensions.halclient.action.EmbedLinks;
+import io.wcm.caravan.pipeline.extensions.halclient.action.FollowLink;
 
 import java.util.Collections;
 import java.util.Map;
+
+import org.osgi.annotation.versioning.ProviderType;
 
 import com.google.common.collect.ImmutableMap;
 
 /**
  * Factory for HAL specific {@link JsonPipelineAction}s.
  */
-public class HalClient {
+@ProviderType
+public final class HalClient {
 
   private final String serviceName;
   private final CacheStrategy cacheStrategy;

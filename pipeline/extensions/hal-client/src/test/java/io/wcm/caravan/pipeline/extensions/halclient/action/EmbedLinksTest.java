@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.halclient.actions;
+package io.wcm.caravan.pipeline.extensions.halclient.action;
 
 import static org.junit.Assert.assertEquals;
 import io.wcm.caravan.commons.hal.resource.HalResource;

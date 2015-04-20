@@ -48,13 +48,13 @@
     <module>commons/metrics</module>
     <module>commons/osgi-test</module>
     <module>commons/stream</module>
-    <module>io/hal-client</module>
     <module>io/http</module>
     <module>io/json-transform</module>
     <module>pipeline/api</module>
     <module>pipeline/impl</module>
     <module>pipeline/cache/couchbase</module>
     <module>pipeline/cache/guava</module>
+    <module>pipeline/extensions/hal-client</module>
     <module>packaging/pipeline-hal-client-aem61</module>
   </modules>
 

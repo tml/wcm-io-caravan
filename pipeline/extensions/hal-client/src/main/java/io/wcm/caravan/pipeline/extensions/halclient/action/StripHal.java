@@ -17,12 +17,15 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.halclient.actions;
+package io.wcm.caravan.pipeline.extensions.halclient.action;
 
 import io.wcm.caravan.commons.hal.resource.HalResource;
 import io.wcm.caravan.pipeline.JsonPipelineAction;
 import io.wcm.caravan.pipeline.JsonPipelineContext;
 import io.wcm.caravan.pipeline.JsonPipelineOutput;
+
+import org.osgi.annotation.versioning.ProviderType;
+
 import rx.Observable;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -30,7 +33,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 /**
  * Action which only emits the HAL state and removes meta data like links and embedded resources.
  */
-public class StripHal implements JsonPipelineAction {
+@ProviderType
+public final class StripHal implements JsonPipelineAction {
 
   @Override
   public String getId() {

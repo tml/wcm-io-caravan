@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.io.halclient.actions;
+package io.wcm.caravan.pipeline.extensions.halclient.action;
 
 import static io.wcm.caravan.io.http.request.CaravanHttpRequest.CORRELATION_ID_HEADER_NAME;
 import io.wcm.caravan.commons.hal.resource.HalResource;
@@ -35,6 +35,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import org.osgi.annotation.versioning.ProviderType;
+
 import rx.Observable;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -42,7 +44,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 /**
  * Action to load a HAL link and replace the current resource by the loaded one.
  */
-public class FollowLink implements JsonPipelineAction {
+@ProviderType
+public final class FollowLink implements JsonPipelineAction {
 
   private final String serviceName;
   private final String relation;

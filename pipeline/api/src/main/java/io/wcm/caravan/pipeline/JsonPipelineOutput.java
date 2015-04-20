@@ -23,13 +23,21 @@ import io.wcm.caravan.io.http.request.CaravanHttpRequest;
 
 import java.util.List;
 
+import org.osgi.annotation.versioning.ProviderType;
+
 import com.fasterxml.jackson.databind.JsonNode;
 
 /**
  * The immutable output of a {@link JsonPipeline}'s processing step: the
  * main JSON content payload, and additional metadata about the status and cachability of the content.
  */
+@ProviderType
 public interface JsonPipelineOutput {
+
+  /**
+   * @return the JSON content
+   */
+  JsonNode getPayload();
 
   /**
    * @return the HTTP status code
@@ -42,9 +50,9 @@ public interface JsonPipelineOutput {
   int getMaxAge();
 
   /**
-   * @return the JSON content
+   * @return the correlation ID from the incoming HTTP request header
    */
-  JsonNode getPayload();
+  String getCorrelationId();
 
   /**
    * @return the requests that produced this output

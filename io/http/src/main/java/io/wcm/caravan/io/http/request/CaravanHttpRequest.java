@@ -26,6 +26,7 @@ import io.wcm.caravan.io.http.impl.CaravanHttpHelper;
 
 import java.net.URI;
 import java.nio.charset.Charset;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +34,7 @@ import org.apache.commons.lang3.CharEncoding;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
+import org.osgi.annotation.versioning.ProviderType;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.LinkedHashMultimap;
@@ -41,7 +43,13 @@ import com.google.common.collect.Multimap;
 /**
  * An immutable request to a HTTP server.
  */
+@ProviderType
 public final class CaravanHttpRequest {
+
+  /**
+   * Correlation ID Header name
+   */
+  public static final String CORRELATION_ID_HEADER_NAME = "X-Caravan-Correlation-Id";
 
   private final String serviceName;
   private final String method;
@@ -155,4 +163,11 @@ public final class CaravanHttpRequest {
     return serviceName;
   }
 
+  /**
+   * @return the value of the correlation-id header or null if it wasn't set
+   */
+  public String getCorrelationId() {
+    Collection<String> correlationHeaders = headers().get(CaravanHttpRequest.CORRELATION_ID_HEADER_NAME);
+    return correlationHeaders.size() >= 1 ? correlationHeaders.iterator().next() : null;
+  }
 }

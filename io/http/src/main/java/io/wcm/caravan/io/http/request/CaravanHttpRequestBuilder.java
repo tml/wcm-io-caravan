@@ -32,6 +32,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.http.client.methods.HttpGet;
+import org.osgi.annotation.versioning.ProviderType;
 
 import com.damnhandy.uri.template.Expression;
 import com.damnhandy.uri.template.UriTemplate;
@@ -41,6 +42,7 @@ import com.google.common.base.Charsets;
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
 import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -49,7 +51,8 @@ import com.google.common.collect.Multimap;
 /**
  * UriTemplate using HTTP request builder.
  */
-public class CaravanHttpRequestBuilder {
+@ProviderType
+public final class CaravanHttpRequestBuilder {
 
   private final String serviceName;
   private String method = HttpGet.METHOD_NAME;
@@ -73,6 +76,16 @@ public class CaravanHttpRequestBuilder {
    */
   public CaravanHttpRequestBuilder(String serviceName) {
     this.serviceName = serviceName;
+  }
+
+  /**
+   * @param serviceName Logical service name. Can be null
+   */
+  public CaravanHttpRequestBuilder(String serviceName, String correlationId) {
+    this.serviceName = serviceName;
+    if (correlationId != null) {
+      header(CaravanHttpRequest.CORRELATION_ID_HEADER_NAME, ImmutableList.of(correlationId));
+    }
   }
 
   /**

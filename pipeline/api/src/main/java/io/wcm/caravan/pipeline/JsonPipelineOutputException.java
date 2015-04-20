@@ -19,10 +19,13 @@
  */
 package io.wcm.caravan.pipeline;
 
+import org.osgi.annotation.versioning.ProviderType;
+
 /**
  * Used to indicate a problem while creating the output of a {@link JsonPipeline} (most likely due to an impossible
  * type-mapping).
  */
+@ProviderType
 public final class JsonPipelineOutputException extends RuntimeException {
   private static final long serialVersionUID = 1L;
 

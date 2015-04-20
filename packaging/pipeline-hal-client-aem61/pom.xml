@@ -5,13 +5,13 @@
   <parent>
     <groupId>io.wcm.caravan</groupId>
     <artifactId>io.wcm.caravan.parent_toplevel</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <relativePath>../../parent_toplevel/pom.xml</relativePath>
   </parent>
 
   <groupId>io.wcm.caravan</groupId>
   <artifactId>io.wcm.caravan.packaging.pipeline-hal-client-aem61</artifactId>
-  <version>0.2.0-SNAPSHOT</version>
+  <version>0.1.0-SNAPSHOT</version>
   <description>wcm.io Caravan Pipeline and HAL Client for consuming RESTful services</description>
   <packaging>content-package</packaging>
 
@@ -51,25 +51,25 @@
     <dependency>
       <groupId>io.wcm.caravan</groupId>
       <artifactId>io.wcm.caravan.io.hal-client</artifactId>
-      <version>0.2.0-SNAPSHOT</version>
+      <version>0.1.0-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>io.wcm.caravan</groupId>
       <artifactId>io.wcm.caravan.pipeline.api</artifactId>
-      <version>0.2.0-SNAPSHOT</version>
+      <version>0.1.0-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>io.wcm.caravan</groupId>
       <artifactId>io.wcm.caravan.pipeline.impl</artifactId>
-      <version>0.2.0-SNAPSHOT</version>
+      <version>0.1.0-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>io.wcm.caravan</groupId>
       <artifactId>io.wcm.caravan.pipeline.cache.guava</artifactId>
-      <version>0.2.0-SNAPSHOT</version>
+      <version>0.1.0-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
 

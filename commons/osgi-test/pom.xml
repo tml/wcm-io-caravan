@@ -24,17 +24,17 @@
   <parent>
     <groupId>io.wcm.caravan</groupId>
     <artifactId>io.wcm.caravan.parent_toplevel</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <relativePath>../../parent_toplevel/pom.xml</relativePath>
   </parent>
 
   <properties>
-    <io-wcm-caravan.version>0.2.0-SNAPSHOT</io-wcm-caravan.version>
+    <io-wcm-caravan.version>0.1.0-SNAPSHOT</io-wcm-caravan.version>
   </properties>
 
   <groupId>io.wcm.caravan</groupId>
   <artifactId>io.wcm.caravan.commons.osgi-test</artifactId>
-  <version>0.2.0-SNAPSHOT</version>
+  <version>0.1.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <name>Commons OSGI test</name>

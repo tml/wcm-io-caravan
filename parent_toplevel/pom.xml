@@ -181,11 +181,6 @@
         <artifactId>commons-beanutils</artifactId>
         <version>1.9.2</version>
       </dependency>
-      <dependency>
-        <groupId>commons-configuration</groupId>
-        <artifactId>commons-configuration</artifactId>
-        <version>1.9</version>
-      </dependency>
 
       <!-- Apache HTTP Client -->
       <dependency>

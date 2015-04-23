@@ -23,6 +23,7 @@ import io.wcm.caravan.io.http.CaravanHttpClient;
 import io.wcm.caravan.io.http.request.CaravanHttpRequest;
 import io.wcm.caravan.io.http.request.CaravanHttpRequestBuilder;
 import io.wcm.caravan.io.http.response.CaravanHttpResponse;
+import io.wcm.caravan.io.http.response.CaravanHttpResponseBuilder;
 import io.wcm.caravan.pipeline.JsonPipeline;
 import io.wcm.caravan.pipeline.JsonPipelineFactory;
 import io.wcm.caravan.pipeline.cache.spi.CacheAdapter;
@@ -34,11 +35,14 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.ReferenceCardinality;
 import org.apache.felix.scr.annotations.ReferencePolicy;
 import org.apache.felix.scr.annotations.Service;
+import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.commons.osgi.RankedServices;
 
 import rx.Observable;
@@ -63,6 +67,12 @@ public final class JsonPipelineFactoryImpl implements JsonPipelineFactory {
   @Reference
   private MetricRegistry metricRegistry;
 
+  @Property(label = "Pipeline Performance Metrics",
+      description = "Set true to enable pipeline performance metrics mersurement")
+  static final String PERFORMANCE_METRICS = "performanceMetricsEnabled";
+  private static final boolean DEFAULT_PERFORMANCE_METRICS = false;
+  private boolean performanceMetricsEnabled;
+
   @Override
   public JsonPipeline create(final CaravanHttpRequest request) {
     return create(request, Collections.emptyMap());
@@ -76,7 +86,7 @@ public final class JsonPipelineFactoryImpl implements JsonPipelineFactory {
     Observable<CaravanHttpResponse> response = transport.execute(request);
 
     return new JsonPipelineImpl(request, response,
-        new JsonPipelineContextImpl(this, createMultiLayerCacheAdapter(), metricRegistry, contextProperties));
+        new JsonPipelineContextImpl(this, createMultiLayerCacheAdapter(), metricRegistry, contextProperties, performanceMetricsEnabled));
   }
 
   @Override
@@ -93,10 +103,15 @@ public final class JsonPipelineFactoryImpl implements JsonPipelineFactory {
     // otherwise the default max-age value of zero would become effective
     ImmutableListMultimap<String, String> headers = ImmutableListMultimap.of("Cache-Control", "max-age: " + Long.toString(TimeUnit.DAYS.toSeconds(365)));
 
-    CaravanHttpResponse emptyJsonResponse = CaravanHttpResponse.create(200, "Ok", headers, "{}", Charset.forName("UTF-8"));
+    CaravanHttpResponse emptyJsonResponse = new CaravanHttpResponseBuilder()
+    .status(200)
+    .reason("OK")
+    .headers(headers)
+    .body("{}", Charset.forName("UTF-8"))
+    .build();
 
     return new JsonPipelineImpl(dummyRequest, Observable.just(emptyJsonResponse),
-        new JsonPipelineContextImpl(this, createMultiLayerCacheAdapter(), metricRegistry, contextProperties));
+        new JsonPipelineContextImpl(this, createMultiLayerCacheAdapter(), metricRegistry, contextProperties, performanceMetricsEnabled));
   }
 
   MultiLayerCacheAdapter createMultiLayerCacheAdapter() {
@@ -110,5 +125,11 @@ public final class JsonPipelineFactoryImpl implements JsonPipelineFactory {
   void unbindCacheAdapter(CacheAdapter service, Map<String, Object> props) {
     cacheAdapters.unbind(service, props);
   }
+
+  @Activate
+  void activate(Map<String, Object> config) {
+    this.performanceMetricsEnabled = PropertiesUtil.toBoolean(config.get(PERFORMANCE_METRICS), DEFAULT_PERFORMANCE_METRICS);
+  }
+
 
 }

@@ -22,6 +22,7 @@ package io.wcm.caravan.commons.test.io;
 import io.wcm.caravan.io.http.CaravanHttpClient;
 import io.wcm.caravan.io.http.request.CaravanHttpRequest;
 import io.wcm.caravan.io.http.response.CaravanHttpResponse;
+import io.wcm.caravan.io.http.response.CaravanHttpResponseBuilder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,8 +30,6 @@ import java.net.URL;
 import org.apache.commons.io.IOUtils;
 
 import rx.Observable;
-
-import com.google.common.collect.ImmutableMultimap;
 
 /**
  * Very simple HTTP client only performing GET requests.
@@ -42,10 +41,15 @@ public class SimpleCaravanHttpClient implements CaravanHttpClient {
 
   @Override
   public Observable<CaravanHttpResponse> execute(CaravanHttpRequest request) {
-    String url = host + request.url();
+    String url = host + request.getUrl();
     try {
       byte[] data = IOUtils.toByteArray(new URL(url));
-      return Observable.just(CaravanHttpResponse.create(200, "OK", ImmutableMultimap.of(), data));
+      CaravanHttpResponse response = new CaravanHttpResponseBuilder()
+          .status(200)
+          .reason("OK")
+          .body(data)
+          .build();
+      return Observable.just(response);
     }
     catch (IOException ex) {
       throw new RuntimeException(ex);

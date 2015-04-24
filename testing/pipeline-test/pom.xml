@@ -48,6 +48,22 @@
   </scm>
 
   <dependencies>
+  
+    <!-- WCM testing io -->
+    <dependency>
+      <groupId>io.wcm.caravan</groupId>
+      <artifactId>io.wcm.caravan.testing.io</artifactId>
+      <version>${io-wcm-caravan.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- WCM testing json -->
+    <dependency>
+      <groupId>io.wcm.caravan</groupId>
+      <artifactId>io.wcm.caravan.testing.json</artifactId>
+      <version>${io-wcm-caravan.version}</version>
+      <scope>compile</scope>
+    </dependency>
 
     <!-- WCM pipeline -->
     <dependency>
@@ -56,6 +72,25 @@
       <version>${io-wcm-caravan.version}</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>io.wcm.caravan</groupId>
+      <artifactId>io.wcm.caravan.pipeline.impl</artifactId>
+      <version>${io-wcm-caravan.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    <!-- Mocking & Junit -->
+	<dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.sling</groupId>
+      <artifactId>org.apache.sling.testing.osgi-mock</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
     
   </dependencies>
 

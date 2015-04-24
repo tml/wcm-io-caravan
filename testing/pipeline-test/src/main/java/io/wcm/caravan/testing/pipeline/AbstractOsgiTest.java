@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package io.wcm.caravan.testing.osgi;
+package io.wcm.caravan.testing.pipeline;
 
 import io.wcm.caravan.io.http.CaravanHttpClient;
 import io.wcm.caravan.io.http.response.CaravanHttpResponse;
@@ -27,7 +27,7 @@ import io.wcm.caravan.pipeline.impl.JsonPipelineFactoryImpl;
 import io.wcm.caravan.testing.io.MockingCaravanHttpClient;
 import io.wcm.caravan.testing.json.JsonFixture;
 import io.wcm.caravan.testing.json.TestConfiguration;
-import io.wcm.caravan.testing.pipeline.InMemoryCacheAdapter;
+import io.wcm.caravan.testing.pipeline.cache.InMemoryCacheAdapter;
 
 import java.nio.charset.Charset;
 

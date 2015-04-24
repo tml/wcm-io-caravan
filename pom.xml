@@ -57,7 +57,6 @@
 	<module>pipeline/cache/guava</module>
 	<module>testing/io-test</module>
 	<module>testing/json-test</module>
-	<module>testing/osgi-test</module>
 	<module>testing/pipeline-test</module>
   </modules>
 

@@ -47,7 +47,6 @@
     <module>commons/jsonpath</module>
     <module>commons/metrics</module>
 	<module>commons/performance</module>
-    <module>commons/osgi-test</module>
     <module>commons/stream</module>
     <module>io/http</module>
     <module>io/json-transform</module>
@@ -56,6 +55,9 @@
     <module>pipeline/cache/couchbase</module>
     <module>pipeline/cache/guava</module>
     <module>pipeline/extensions/hal-client</module>
+	<module>testing/io-test</module>
+	<module>testing/json-test</module>
+	<module>testing/pipeline-test</module>
     <module>packaging/pipeline-hal-client-aem61</module>
   </modules>
 
